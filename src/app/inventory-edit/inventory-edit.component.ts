@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Item, InventoryComponent } from '../inventory/inventory.component'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Item } from '../item.model';
 
 @Component({
   selector: 'app-inventory-edit',
@@ -7,8 +7,12 @@ import { Item, InventoryComponent } from '../inventory/inventory.component'
   styleUrls: ['./inventory-edit.component.css']
 })
 export class InventoryEditComponent implements OnInit {
+  @Input() childSelectedItem: Item;
+  @Output() doneClickedSender= new EventEmitter();
 
-  constructor() { }
+  doneClicked() {
+    this.doneClickedSender.emit();
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,9 @@
 <div class="container">
-  <div class="jumbotron">    
+  <div class="jumbotron">
     <h2>Welcome to {{title}}</h2>
   </div>
+  <h1>Current stock on {{month}}/{{day}}/{{year}}</h1>
+  <app-inventory [childItemList]='masterItemList' (clickSender)='editItem($event)' (buySender)='sellItem($event)'></app-inventory>
+  <app-inventory-edit [childSelectedItem]='selectedItem' (doneClickedSender)='finishedEditing($event)'></app-inventory-edit>
+  <app-inventory-new (newItemSender)='addItem($event)'></app-inventory-new>
 </div>
-<app-inventory></app-inventory>

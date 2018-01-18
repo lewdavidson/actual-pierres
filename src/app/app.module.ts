@@ -4,13 +4,15 @@ import { AppComponent } from './app.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { InventoryEditComponent } from './inventory-edit/inventory-edit.component';
 import { FormsModule }  from '@angular/forms';
+import { InventoryNewComponent } from './inventory-new/inventory-new.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     InventoryComponent,
-    InventoryEditComponent
+    InventoryEditComponent,
+    InventoryNewComponent
   ],
   imports: [
     BrowserModule,

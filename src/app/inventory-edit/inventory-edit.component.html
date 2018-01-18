@@ -1,14 +1,13 @@
-<!-- <div *ngIf="selectedItem" class="edit">
-  <h3>{{selectedItem.name}}</h3>
+<div *ngIf="childSelectedItem" class="edit">
+  <h3>{{childSelectedItem.name}}</h3>
   <h3>Edit Task</h3>
   <label>Enter Item Name:</label>
-  <input [(ngModel)]="selectedItem.name">
+  <input [(ngModel)]="childSelectedItem.name">
   <label>Enter Item price</label>
-  <input [(ngModel)]="selectedItem.price">
+  <input [(ngModel)]="childSelectedItem.price">
   <label>Enter Farmer name</label>
-  <input [(ngModel)]="selectedItem.farmer">
+  <input [(ngModel)]="childSelectedItem.farmer">
   <label>Enter energy level</label>
-  <input [(ngModel)]="selectedItem.energy">
-  <button (click)="finishedEditing()">Done</button>
+  <input [(ngModel)]="childSelectedItem.energy">
+  <button (click)="doneClicked()">Done</button>
 </div>
-<div *ngIf="newItem" class="new-item"> -->

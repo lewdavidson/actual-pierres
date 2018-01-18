@@ -1,33 +1,20 @@
-
-<div class="container">
-  <h1>Current stock on {{month}}/{{day}}/{{year}}</h1>
   <div class="row inventory">
-    <div *ngFor="let currentItem of items" class= "inventory col-md-3 card">
+    <div *ngFor="let currentItem of childItemList" class= "inventory col-md-3 card">
       <img class="card-img-top" src="{{currentItem.pic}}" alt="Card image cap">
       <div class="card-body">
         <h3>{{currentItem.name}}</h3>
-        <p>Price: {{currentItem.price}}g</p>
+        <p [class]="priceColor(currentItem)">Price: {{currentItem.price}}g</p>
         <p>Farmer: {{currentItem.farmer}}</p>
         <p>Energy Gain: {{currentItem.energy}}</p>
-        <button (click)="editItem(currentItem)" type="button" name="button">Edit Me!</button>
+        <p [class]="priorityColor(currentItem)">Stock Level: {{currentItem.quantity}}</p>
+        <button (click)="editItemClicked(currentItem)" type="button" name="button">Edit Me!</button>
+        <button  (click)="buyItemClicked(currentItem)" type="button" class="btn btn-danger">Buy Item</button>
       </div>
     </div>
   </div>
-  <div *ngIf="selectedItem" class="edit">
-    <h3>{{selectedItem.name}}</h3>
-    <h3>Edit Task</h3>
-    <label>Enter Item Name:</label>
-    <input [(ngModel)]="selectedItem.name">
-    <label>Enter Item price</label>
-    <input [(ngModel)]="selectedItem.price">
-    <label>Enter Farmer name</label>
-    <input [(ngModel)]="selectedItem.farmer">
-    <label>Enter energy level</label>
-    <input [(ngModel)]="selectedItem.energy">
-    <button (click)="finishedEditing()">Done</button>
-  </div>
+
+  <!-- <div *ngIf="newItem" class="new-item">
+
   <div *ngIf="newItem" class="new-item">
 
-  <!-- <div *ngIf="newItem" class="new-item"> -->
-
-  </div>
+  </div> -->
