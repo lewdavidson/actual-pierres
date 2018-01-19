@@ -1,16 +1,20 @@
-<h1>New Inventory Item</h1>
-<div>
-  <label>Item Name:</label>
-  <input #newItemName>
-  <label>Item Price:</label>
-  <input #newItemPrice>
-  <label>Farmer:</label>
-  <input #newItemFarmer>
-  <label>Energy Gain:</label>
-  <input #newItemEnergy>
-  <label>Picture URL:</label>
-  <input #newItemPic>
+
+<button (click)="addItemMenu()" type="button" name="button">Click to add Item</button>
+<div *ngIf="showMenu">
+  <h1>New Inventory Item</h1>
+  <div>
+    <label>Item Name:</label>
+    <input #newItemName>
+    <label>Item Price:</label>
+    <input #newItemPrice>
+    <label>Farmer:</label>
+    <input #newItemFarmer>
+    <label>Energy Gain:</label>
+    <input #newItemEnergy>
+    <label>Picture URL:</label>
+    <input #newItemPic>
+  </div>
+  <div>
+   <button (click)="addItemMenu()" (click)="submitForm(newItemName.value, newItemPrice.value, newItemFarmer.value, newItemEnergy.value, newItemPic.value); newItemName.value=''; newItemPrice.value=''; newItemFarmer.value=''; newItemFarmer.value=''; newItemPic.value=''; ">Add new Item</button>
+  </div>
 </div>
-<div>
- <button (click)="submitForm(newItemName.value, newItemPrice.value, newItemFarmer.value, newItemEnergy.value, newItemPic.value); newItemName.value=''; newItemPrice.value=''; newItemFarmer.value=''; newItemFarmer.value=''; newItemPic.value=''; ">Add new Task</button>
- </div>

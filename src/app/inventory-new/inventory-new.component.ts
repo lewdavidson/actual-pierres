@@ -12,7 +12,10 @@ export class InventoryNewComponent implements OnInit {
     const newItemToAdd: Item = new Item(name, price, farmer, energy, pic);
     this.newItemSender.emit(newItemToAdd);
   }
-
+  showMenu: boolean = false;
+  addItemMenu() {
+    this.showMenu = !this.showMenu;
+  }
   ngOnInit() {
   }
 

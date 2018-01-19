@@ -7,6 +7,8 @@ import { Item } from './item.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  showMenu: boolean = false;
+  employeeShow: boolean = false;
   title = "Pierre's General Store!";
   currentTime = new Date();
   month: number = this.currentTime.getMonth() + 1;
@@ -22,6 +24,7 @@ export class AppComponent {
     new Item('Goat Milk', 500, 'Lew', 500, 'assets/img/Goat_Milk.png'),
     new Item('Void Egg', 8000, 'Krobus', -50, 'assets/img/void.png')
   ];
+
   selectedItem = null;
   editItem(clickedItem) {
     this.selectedItem = clickedItem;
@@ -35,7 +38,20 @@ export class AppComponent {
   sellItem(clickedItem){
     if (clickedItem.quantity > 0) {
         clickedItem.quantity -= 1;
-    } 
+    }
+  }
+  sellCarton(clickedItem){
+    if (clickedItem.quantity >= 6) {
+        clickedItem.quantity -= 6;
+    }
+  }
+  sellCase(clickedItem){
+    if (clickedItem.quantity >= 12) {
+        clickedItem.quantity -= 12;
+    }
+  }
+  showEmpMenu(employeeShow){
+    this.employeeShow = !this.employeeShow;
   }
 
 }

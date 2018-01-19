@@ -1,5 +1,16 @@
+  <div class="row button-row">
+
+    <select (change)="onChange($event.target.value)">
+      <option value="allInventory" select="selected">Full Inventory</option>
+      <option value="highEnergy">Energy Gain Over 20</option>
+      <option value="cheap">Costs Less Than 100g</option>
+    </select>
+
+    <button (click)="employeeClick()" class="emp btn-danger" type="button" name="button">Employee Stuff</button>
+  </div>
+
   <div class="row inventory">
-    <div *ngFor="let currentItem of childItemList" class= "inventory col-md-3 card">
+    <div *ngFor="let currentItem of childItemList | filter: filterByFullInventory" class= "inventory col-md-3 card">
       <img class="card-img-top" src="{{currentItem.pic}}" alt="Card image cap">
       <div class="card-body">
         <h3>{{currentItem.name}}</h3>
@@ -7,14 +18,11 @@
         <p>Farmer: {{currentItem.farmer}}</p>
         <p>Energy Gain: {{currentItem.energy}}</p>
         <p [class]="priorityColor(currentItem)">Stock Level: {{currentItem.quantity}}</p>
-        <button (click)="editItemClicked(currentItem)" type="button" name="button">Edit Me!</button>
+
+        <button *ngIf="childEmployeeShow" (click)="editItemClicked(currentItem)" type="button" name="button">Edit Me!</button>
         <button  (click)="buyItemClicked(currentItem)" type="button" class="btn btn-danger">Buy Item</button>
+        <button  (click)="buyCartonClicked(currentItem)" type="button" class="btn btn-warning">Buy Carton (6)</button>
+        <button  (click)="buyCaseClicked(currentItem)" type="button" class="btn btn-info">Buy Case (12)</button>
       </div>
     </div>
   </div>
-
-  <!-- <div *ngIf="newItem" class="new-item">
-
-  <div *ngIf="newItem" class="new-item">
-
-  </div> -->

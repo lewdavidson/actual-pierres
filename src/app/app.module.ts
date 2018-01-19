@@ -5,6 +5,7 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { InventoryEditComponent } from './inventory-edit/inventory-edit.component';
 import { FormsModule }  from '@angular/forms';
 import { InventoryNewComponent } from './inventory-new/inventory-new.component';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { InventoryNewComponent } from './inventory-new/inventory-new.component';
     AppComponent,
     InventoryComponent,
     InventoryEditComponent,
-    InventoryNewComponent
+    InventoryNewComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
